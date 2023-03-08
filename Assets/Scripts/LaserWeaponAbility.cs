@@ -28,6 +28,7 @@ public class LaserWeaponAbility : MonoBehaviour
     private Vector3 lookAt;
 
     private Transform playerTransform;
+    private int timesShot;
 
 
     // Start is called before the first frame update
@@ -62,6 +63,7 @@ public class LaserWeaponAbility : MonoBehaviour
                 if (IsObjectShootable(hit.transform.gameObject))
                 {
                     GameObject objectGettingShot = hit.transform.gameObject;
+                    
                     Response(objectGettingShot);
                 }
             }
@@ -78,7 +80,11 @@ public class LaserWeaponAbility : MonoBehaviour
     /// <param name="o"></param>
     private void Response(GameObject o)
     {
-        Destroy(o);
+        timesShot++;
+        if (timesShot > 3)
+        {
+            Destroy(o);
+        }
     }
 
 
