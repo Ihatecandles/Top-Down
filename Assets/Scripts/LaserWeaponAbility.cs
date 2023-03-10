@@ -80,8 +80,8 @@ public class LaserWeaponAbility : MonoBehaviour
     /// <param name="o"></param>
     private void Response(GameObject o)
     {
-        timesShot++;
-        if (timesShot > 3)
+        o.GetComponent<hitByLaser>().eatLaser();
+        if (o.GetComponent<hitByLaser>().timesHit > 2)
         {
             Destroy(o);
         }
