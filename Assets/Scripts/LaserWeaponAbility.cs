@@ -29,7 +29,9 @@ public class LaserWeaponAbility : MonoBehaviour
 
     private Transform playerTransform;
     private int timesShot;
-
+    public int enemiesKilled = 0;
+    public GameObject enemySpawner;
+    public GameObject winText;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,6 +42,8 @@ public class LaserWeaponAbility : MonoBehaviour
         line.SetPosition(1, transform.position);
         line.material = material;
         playerTransform = GameObject.Find(nameOfCharacterController).GetComponent<Transform>();
+        enemySpawner = GameObject.Find("enemySpawner");
+        winText = GameObject.Find("winnerText");
     }
 
     // Update is called once per frame
@@ -73,6 +77,12 @@ public class LaserWeaponAbility : MonoBehaviour
             line.SetPosition(1, endPoint);
             StartCoroutine(TurnOffLaser());
         }
+
+        if (enemiesKilled >7) {
+            enemySpawner.GetComponent<TimerScript>().enabled = false;
+            winText.SetActive(true);
+
+        }
     }
 
     /// <summary>
@@ -84,6 +94,7 @@ public class LaserWeaponAbility : MonoBehaviour
         if (o.GetComponent<hitByLaser>().timesHit > 2)
         {
             Destroy(o);
+            enemiesKilled++;
         }
     }
 

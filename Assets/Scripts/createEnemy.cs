@@ -14,7 +14,7 @@ public class createEnemy : MonoBehaviour
 
     public void createSpawn()
     {
-        Debug.Log("Test");
+        
         Instantiate(EnemySpawn, new Vector3((float)1.5, (float)1.5, (float)Random.Range(-1, -11)), Quaternion.identity);
     }
     // Update is called once per frame

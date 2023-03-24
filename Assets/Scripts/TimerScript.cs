@@ -33,6 +33,7 @@ public class TimerScript : MonoBehaviour
 			timeLastSpawned = Time.time;
 		}
 		
+		
 		//textBox.text = Mathf.Round(timeStart).ToString();
 	}
 }
