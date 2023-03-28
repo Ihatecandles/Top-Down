@@ -43,7 +43,7 @@ public class LaserWeaponAbility : MonoBehaviour
         line.material = material;
         playerTransform = GameObject.Find(nameOfCharacterController).GetComponent<Transform>();
         enemySpawner = GameObject.Find("enemySpawner");
-        winText = GameObject.Find("winnerText");
+        //winText = GameObject.Find("winnerText");
     }
 
     // Update is called once per frame
@@ -80,7 +80,7 @@ public class LaserWeaponAbility : MonoBehaviour
 
         if (enemiesKilled >7) {
             enemySpawner.GetComponent<TimerScript>().enabled = false;
-            winText.SetActive(true);
+            //winText.SetActive(true);
 
         }
     }
